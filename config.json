@@ -2,7 +2,7 @@
 	"apiPrefix": "http://localhost:8080",
 	"port": "8080",
 	"db":{
-		"name":	"notes",
+		"name":	"lia_diploma",
 		"host":	"localhost",
 		"port":	27017
 	} 	

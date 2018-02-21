@@ -8,7 +8,7 @@ db.dbConnect();
 
 const app = express();
  
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ extended: false }));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -47,5 +47,9 @@ const server = app.listen(port, () => {
 });
 
 app.post('/user', (req, res) => {
-  db.createNote(JSON.parse(Object.keys(req.body)[0])).then( data => res.send(req.body) );
+  db.createUser(req.body).then( data => res.send(req.body) );
+});
+
+app.get('/user/:login', (req, res) => {
+  db.getUser(req.params.login).then( data => res.send(data) );
 });
